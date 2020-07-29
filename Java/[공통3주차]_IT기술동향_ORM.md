@@ -72,27 +72,7 @@ https://gmlwjd9405.github.io/2018/12/25/difference-jdbc-jpa-mybatis.html
 
 
 
-##### JPA(Java Persistent API)
 
-- 자바 ORM기술에 대한 API 표준 명세. Java에서 제공하는 API
-  - ORM을 사용하기 위한 표준 인터페이스를 모아둔 것
-  - 기존 EJB에서 제공되던 Entity Bean을 대체하는 기술
-- JPA 구성요소
-  - javax.persistance 패키지로 정의된 API
-  - JPQL(Java Persistence Query Language)
-  - 객체/관계 메타데이터
-- 사용자가 원하는 JPA 구현체를 선택해서 사용할 수 있다.
-  - 
-  - Hibernate, EclipseLink, DataNucleus, OpenJPA, TopLink Essentials 등
-  - 위 구현체들을 ORM Framework라고 부른다.
-
-
-
-##### Hibernate
-
-- JPA의 구현체 중 하나
-- Hibernate가 지원하는 메서드 내부에서 JDBC API가 동작하고 있다.
-- 
 
 
 
@@ -134,17 +114,58 @@ https://gmlwjd9405.github.io/2018/12/25/difference-jdbc-jpa-mybatis.html
     - 잘못구현 시 속도 저하 및 일관성이 무너지는 심각한 문제가 발생할 수 있음
     - DBMS의 고유 기능을 이용하기 어려움(단점으로만 작용하는 것은 아님)
   - 프로시저가 많은 시스템에선 ORM의 객체지향적 장점을 활용하기 어려움
-    - 
 
 
 
 
 
-### MyBatis & JPA
+### MyBatis & JPA & Hibernate
+
+##### Mybatis
+
+- 개발자가 지정한 SQL, 저장 프로시저, 고급 매핑을 지원하는 SQL Mapper
+- 원래 Apache Foundation의 iBatis였으나 생산성, 개발프로세스, 커뮤니티 등의 이유로 Google Code로 이전되면서 MyBatis로 바뀜
+  - iBatis와 차이점 - JDK 1.5, Annotation, Dynatic SQL, XML Element
+- **장점**
+  - SQL에 대한 모든 컨트롤을 하고자 할 때 매우 적합
+  - SQL쿼리들이 최적화되어있을 때 유용
+- **단점**
+  - 애플리케이션과 데이터베이스 간 설계에 대한 모든 조작을 하고자 할 때는 적합하지 않음
 
 
 
+##### JPA(Java Persistent API)
 
+- 자바 ORM기술에 대한 API 표준 명세. Java에서 제공하는 API
+  - ORM을 사용하기 위한 표준 인터페이스를 모아둔 것
+  - 기존 EJB에서 제공되던 Entity Bean을 대체하는 기술
+- JPA 구성요소
+  - javax.persistance 패키지로 정의된 API
+  - JPQL(Java Persistence Query Language)
+  - 객체/관계 메타데이터
+- 사용자가 원하는 JPA 구현체를 선택해서 사용할 수 있다.
+  - 
+  - Hibernate, EclipseLink, DataNucleus, OpenJPA, TopLink Essentials 등
+  - 위 구현체들을 ORM Framework라고 부른다.
+
+
+
+##### Hibernate
+
+- JPA의 구현체 중 하나
+- 개발자가 직접 SQL을 작성하지 않을 뿐 Hibernate가 지원하는 메서드 내부에서 JDBC API가 동작하고 있다.
+- HQL(hibernate Query Language)라 불리는 SQL과 매우 비슷한 쿼리 언어를 포함하고 있음.
+  - 객체 지향적이며 상속, 다형성, 관계 등의 객체지향 강점을 누릴 수 있다.
+  - 자바 클래스와 프로퍼티 이름을 제외하고 **대소문자를 구분**한다.
+  - SQL에서 지원하지 않는 **페이지네이션**이나 동적 프로파일링과 같은 향상된 기능을 제공
+  - 쿼리결과로 **객체를 반환**하며 프로그래머에 의해 생성되고 직접적으로 접근할 수 있다.
+  - **장점**
+    - 객체지향적으로 데이터를 관리할 수 있기 때문에 비즈니스 로직에 집중할 수 있으며 객체지향 개발이 가능하다.
+    - 테이블 생성, 변경, 관리가 쉬움
+    - 로직을 쿼리에 집중하기보다는 객체 자체에 집중할 수 있음.
+  - **단점**
+    - 어려움 + 잘 이해하지 않고 사용하면 데이터 손실이 있을 수 있음
+    - 성능상 문제가 있을 수 있음
 
 
 
