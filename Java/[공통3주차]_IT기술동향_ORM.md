@@ -1,6 +1,6 @@
 # 공통 3주차_기술동향
 
-
+[TOC]
 
 ##### 출처
 
@@ -131,20 +131,20 @@ https://gmlwjd9405.github.io/2018/12/25/difference-jdbc-jpa-mybatis.html
   - SQL쿼리들이 최적화되어있을 때 유용
 - **단점**
   - 애플리케이션과 데이터베이스 간 설계에 대한 모든 조작을 하고자 할 때는 적합하지 않음
+  - ==DAO와 의존성이 강함==(테이블에 컬럼이 하나 추가될 경우 관련된 모든 SQL문을 수정해야 함.)
 
 
 
 ##### JPA(Java Persistent API)
 
 - 자바 ORM기술에 대한 API 표준 명세. Java에서 제공하는 API
-  - ORM을 사용하기 위한 표준 인터페이스를 모아둔 것
+  - ==ORM을 사용하기 위한 표준 인터페이스를 모아둔 것==
   - 기존 EJB에서 제공되던 Entity Bean을 대체하는 기술
 - JPA 구성요소
   - javax.persistance 패키지로 정의된 API
   - JPQL(Java Persistence Query Language)
   - 객체/관계 메타데이터
 - 사용자가 원하는 JPA 구현체를 선택해서 사용할 수 있다.
-  - 
   - Hibernate, EclipseLink, DataNucleus, OpenJPA, TopLink Essentials 등
   - 위 구현체들을 ORM Framework라고 부른다.
 
