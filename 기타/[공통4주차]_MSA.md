@@ -113,9 +113,20 @@ https://wooaoe.tistory.com/57
      - 마이크로서비스 구성 요소간의 네트워크를 제어하는 역할 수행
      - 서비스 간 통신을 위해 service discovery, service routing, 트래픽 관리 및 보안 담당 요소 수행
   3. Container Management
+     - 컨테이너 기반 어플리케이션 운영
   4. Blacking Services
+     - 어플리케이션이 실행되는 가운데 네트워크를 통해서 사용할 수 있는 모든 서비스
+     - DB, Cache, SMTP 서비스 등 어플리케이션과 통신하는 attached Resource들을 지칭하는 포괄적 개념
+     - **Message queue**
+       - 메시지의 송신자와 수신자가 직접 통신하지 않고 Message Queue를 활용하여 비동기적으로 통신하는 것을 지향
+       - 
   5. Telemetry
+     - 
   6. CI/CD Automation
+
+
+
+
 
 
 
